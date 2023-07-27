@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
+        <Nullable>enable</Nullable>
+
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <Version>1.0.0</Version>
+        <Title>LinqApplyIf</Title>
+        <Description>LINQ extension methods for applying transformations conditionally.</Description>
+        <Copyright>Copyright (c) 2023 Y56380X</Copyright>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Authors>Y56380X</Authors>
+        <RepositoryUrl>https://github.com/Y56380X/LinqApplyIf</RepositoryUrl>
+        <RepositoryType>GitHub</RepositoryType>
+
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+</Project>
