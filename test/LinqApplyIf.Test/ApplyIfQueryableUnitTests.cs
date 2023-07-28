@@ -1,13 +1,15 @@
 namespace LinqApplyIf.Test;
 
-public class ApplyIfUnitTests
+public class ApplyIfQueryableUnitTests
 {
     [Fact]
     public void ApplyIf_TrueCondition_ShouldApply_Transformation()
     {
         var elements = new[] { 1, 2, 3, 4, 5 };
 
-        var alteredElements = elements.ApplyIf(() => true, xs => xs.Select(x => x + 1));
+        var alteredElements = elements
+            .AsQueryable()
+            .ApplyIf(() => true, xs => xs.Select(x => x + 1));
         
         Assert.Equal(elements.Select(x => x + 1), alteredElements);
     }
@@ -17,7 +19,9 @@ public class ApplyIfUnitTests
     {
         var elements = new[] { 1, 2, 3, 4, 5 };
 
-        var alteredElements = elements.ApplyIf(() => false, xs => xs.Select(x => x + 1));
+        var alteredElements = elements
+            .AsQueryable()
+            .ApplyIf(() => false, xs => xs.Select(x => x + 1));
         
         Assert.Equal(elements, alteredElements);
     }
@@ -26,7 +30,9 @@ public class ApplyIfUnitTests
     {
         var elements = new[] { 1, 2, 3, 4, 5 };
 
-        var alteredElements = elements.ApplyIfElse(() => true, 
+        var alteredElements = elements
+            .AsQueryable()
+            .ApplyIfElse(() => true, 
             xs => xs.Select(x => x + 1),
             xs => xs.Select(x => x - 1));
         
@@ -38,7 +44,9 @@ public class ApplyIfUnitTests
     {
         var elements = new[] { 1, 2, 3, 4, 5 };
 
-        var alteredElements = elements.ApplyIfElse(() => false, 
+        var alteredElements = elements
+            .AsQueryable()
+            .ApplyIfElse(() => false, 
             xs => xs.Select(x => x + 1),
             xs => xs.Select(x => x - 1));
         
