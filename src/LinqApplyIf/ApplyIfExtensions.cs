@@ -67,7 +67,7 @@ namespace LinqApplyIf
         /// <typeparam name="TSource">Input enumerable item type</typeparam>
         /// <typeparam name="TTarget">Output enumerable item type</typeparam>
         /// <returns>Enumerable with conditionally applied transformation.</returns>
-        public static IEnumerable<TTarget> ApplyIfElse<TSource, TTarget>(
+        public static IQueryable<TTarget> ApplyIfElse<TSource, TTarget>(
             this IQueryable<TSource> source,
             Func<bool> condition,
             Func<IQueryable<TSource>, IQueryable<TTarget>> ifBinding,
