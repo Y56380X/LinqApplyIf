@@ -18,6 +18,7 @@
         <RepositoryType>GitHub</RepositoryType>
 
         <Deterministic>true</Deterministic>
+        <IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">true</IsAotCompatible>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
