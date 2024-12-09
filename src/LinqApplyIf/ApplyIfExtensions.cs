@@ -13,7 +13,7 @@ namespace LinqApplyIf
     public static class ApplyIfExtensions
     {
         /// <summary>
-        /// Apply a given transformation to a enumerable if condition applies.
+        /// Apply a given transformation to an enumerable if condition applies.
         /// </summary>
         /// <param name="source">Source enumerable</param>
         /// <param name="condition">Condition</param>
@@ -27,7 +27,7 @@ namespace LinqApplyIf
             condition() ? ifBinding(source) : source;
 
         /// <summary>
-        /// Apply a given if-transformation to a enumerable if condition applies, if not else-transformation is applied.
+        /// Apply a given if-transformation to an enumerable if condition applies, if not else-transformation is applied.
         /// </summary>
         /// <param name="source">Source enumerable</param>
         /// <param name="condition">Condition</param>
@@ -44,7 +44,7 @@ namespace LinqApplyIf
             condition() ? ifBinding(source) : elseBinding(source);
         
         /// <summary>
-        /// Apply a given transformation to a enumerable if condition applies.
+        /// Apply a given transformation to an enumerable if condition applies.
         /// </summary>
         /// <param name="source">Source enumerable</param>
         /// <param name="condition">Condition</param>
@@ -58,7 +58,7 @@ namespace LinqApplyIf
             condition() ? ifBinding(source) : source;
 
         /// <summary>
-        /// Apply a given if-transformation to a enumerable if condition applies, if not else-transformation is applied.
+        /// Apply a given if-transformation to an enumerable if condition applies, if not else-transformation is applied.
         /// </summary>
         /// <param name="source">Source enumerable</param>
         /// <param name="condition">Condition</param>
@@ -75,7 +75,7 @@ namespace LinqApplyIf
             condition() ? ifBinding(source) : elseBinding(source);
         
         /// <summary>
-        /// Apply a given transformation to a enumerable if condition applies.
+        /// Apply a given transformation to an enumerable if condition applies.
         /// </summary>
         /// <param name="source">Source enumerable</param>
         /// <param name="condition">Evaluated condition</param>
@@ -89,7 +89,7 @@ namespace LinqApplyIf
             condition ? ifBinding(source) : source;
 
         /// <summary>
-        /// Apply a given if-transformation to a enumerable if condition applies, if not else-transformation is applied.
+        /// Apply a given if-transformation to an enumerable if condition applies, if not else-transformation is applied.
         /// </summary>
         /// <param name="source">Source enumerable</param>
         /// <param name="condition">Evaluated condition</param>
@@ -106,7 +106,7 @@ namespace LinqApplyIf
             condition ? ifBinding(source) : elseBinding(source);
         
         /// <summary>
-        /// Apply a given transformation to a enumerable if condition applies.
+        /// Apply a given transformation to an enumerable if condition applies.
         /// </summary>
         /// <param name="source">Source enumerable</param>
         /// <param name="condition">Evaluated condition</param>
@@ -120,7 +120,7 @@ namespace LinqApplyIf
             condition ? ifBinding(source) : source;
 
         /// <summary>
-        /// Apply a given if-transformation to a enumerable if condition applies, if not else-transformation is applied.
+        /// Apply a given if-transformation to an enumerable if condition applies, if not else-transformation is applied.
         /// </summary>
         /// <param name="source">Source enumerable</param>
         /// <param name="condition">Evaluated condition</param>
