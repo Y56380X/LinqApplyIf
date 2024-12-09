@@ -135,5 +135,69 @@ namespace LinqApplyIf
             Func<IQueryable<TSource>, IQueryable<TTarget>> ifBinding,
             Func<IQueryable<TSource>, IQueryable<TTarget>> elseBinding) =>
             condition ? ifBinding(source) : elseBinding(source);
+
+#if NETSTANDARD2_1_OR_GREATER || NET6_0_OR_GREATER
+        /// <summary>
+        /// Apply a given transformation to an async-enumerable if condition applies.
+        /// </summary>
+        /// <param name="source">Source enumerable</param>
+        /// <param name="condition">Condition</param>
+        /// <param name="ifBinding">Transformation which applies if condition is true</param>
+        /// <typeparam name="T">Enumerable item type</typeparam>
+        /// <returns>Enumerable with conditionally applied transformation.</returns>
+        public static IAsyncEnumerable<T> ApplyIf<T>(
+            this IAsyncEnumerable<T> source,
+            Func<bool> condition,
+            Func<IAsyncEnumerable<T>, IAsyncEnumerable<T>> ifBinding) =>
+            condition() ? ifBinding(source) : source;
+
+        /// <summary>
+        /// Apply a given if-transformation to an async-enumerable if condition applies, if not else-transformation is applied.
+        /// </summary>
+        /// <param name="source">Source enumerable</param>
+        /// <param name="condition">Condition</param>
+        /// <param name="ifBinding">Transformation which applies if condition is true</param>
+        /// <param name="elseBinding">Transformation which applies if condition is false</param>
+        /// <typeparam name="TSource">Input enumerable item type</typeparam>
+        /// <typeparam name="TTarget">Output enumerable item type</typeparam>
+        /// <returns>Enumerable with conditionally applied transformation.</returns>
+        public static IAsyncEnumerable<TTarget> ApplyIfElse<TSource, TTarget>(
+            this IAsyncEnumerable<TSource> source,
+            Func<bool> condition,
+            Func<IAsyncEnumerable<TSource>, IAsyncEnumerable<TTarget>> ifBinding,
+            Func<IAsyncEnumerable<TSource>, IAsyncEnumerable<TTarget>> elseBinding) =>
+            condition() ? ifBinding(source) : elseBinding(source);
+        
+        /// <summary>
+        /// Apply a given transformation to an async-enumerable if condition applies.
+        /// </summary>
+        /// <param name="source">Source enumerable</param>
+        /// <param name="condition">Evaluated condition</param>
+        /// <param name="ifBinding">Transformation which applies if condition is true</param>
+        /// <typeparam name="T">Enumerable item type</typeparam>
+        /// <returns>Enumerable with conditionally applied transformation.</returns>
+        public static IAsyncEnumerable<T> ApplyIf<T>(
+            this IAsyncEnumerable<T> source,
+            bool condition,
+            Func<IAsyncEnumerable<T>, IAsyncEnumerable<T>> ifBinding) =>
+            condition ? ifBinding(source) : source;
+
+        /// <summary>
+        /// Apply a given if-transformation to an async-enumerable if condition applies, if not else-transformation is applied.
+        /// </summary>
+        /// <param name="source">Source enumerable</param>
+        /// <param name="condition">Evaluated condition</param>
+        /// <param name="ifBinding">Transformation which applies if condition is true</param>
+        /// <param name="elseBinding">Transformation which applies if condition is false</param>
+        /// <typeparam name="TSource">Input enumerable item type</typeparam>
+        /// <typeparam name="TTarget">Output enumerable item type</typeparam>
+        /// <returns>Enumerable with conditionally applied transformation.</returns>
+        public static IAsyncEnumerable<TTarget> ApplyIfElse<TSource, TTarget>(
+            this IAsyncEnumerable<TSource> source,
+            bool condition,
+            Func<IAsyncEnumerable<TSource>, IAsyncEnumerable<TTarget>> ifBinding,
+            Func<IAsyncEnumerable<TSource>, IAsyncEnumerable<TTarget>> elseBinding) =>
+            condition ? ifBinding(source) : elseBinding(source);
+#endif
     }
 }

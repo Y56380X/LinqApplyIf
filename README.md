@@ -1,5 +1,5 @@
 # LinqApplyIf
-LINQ extension methods for applying transformations conditionally
+LINQ extension methods for applying transformations conditionally on enumerations, queryables, and async-enumerations.
 
 ## Samples
 
